@@ -1,0 +1,32 @@
+@import "./styles/button.css";
+@import "./styles/color-input.css";
+@import "./styles/heading.css";
+@import "./styles/preview.css";
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	margin: 0;
+	background-color: #202024;
+	color: #f6f6f7;
+	font-family: sans-serif;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	box-shadow: 0 4px 8px #00000033;
+	background-color: #333338;
+	padding: 20px;
+
+	@media (width > 480px) {
+		margin: 20px;
+		border-radius: 8px;
+		padding: 30px;
+	}
+}

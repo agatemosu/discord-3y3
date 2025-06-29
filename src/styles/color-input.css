@@ -1,0 +1,44 @@
+.color-pickers {
+	display: grid;
+	justify-content: space-around;
+	gap: 20px;
+
+	@media (width > 360px) {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+.color-input-group {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+.color-input {
+	appearance: none;
+	cursor: pointer;
+	border: none;
+	border-radius: 50%;
+	background: none;
+	padding: 0;
+	width: 80px;
+	height: 80px;
+}
+
+.color-input::-webkit-color-swatch {
+	border: none;
+	border-radius: 50%;
+}
+
+.color-input::-moz-color-swatch {
+	border: none;
+	border-radius: 50%;
+}
+
+.color-text-input {
+	border: 0;
+	border-radius: 5px;
+	padding: 10px 12px;
+	width: 100%;
+}

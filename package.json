@@ -1,0 +1,25 @@
+{
+	"name": "discord-3y3",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc -b && vite build",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@preact/preset-vite": "2.10.2",
+		"preact": "10.26.9",
+		"typescript": "5.8.3",
+		"vite": "latest"
+	},
+	"devDependencies": {
+		"prettier": "3.6.2",
+		"prettier-plugin-css-order": "2.1.2"
+	},
+	"pnpm": {
+		"overrides": {
+			"vite": "npm:rolldown-vite@7.0.3"
+		}
+	}
+}
