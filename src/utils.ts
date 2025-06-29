@@ -21,12 +21,11 @@ export function encode(primary: number, accent: number): string {
 	const accentHex = toCssHex(accent);
 
 	const message = `[${primaryHex},${accentHex}]`;
-	const padding = "";
 	const encoded = Array.from(message)
-		.map((x) => x.codePointAt(0))
-		.filter((x): x is number => x !== undefined && x >= 0x20 && x <= 0x7f)
+		.map((x) => x.codePointAt(0) ?? 0)
+		.filter((x) => x >= 0x20 && x <= 0x7f)
 		.map((x) => String.fromCodePoint(x + 0xe0000))
 		.join("");
 
-	return (padding || "") + " " + encoded;
+	return ` ${encoded}`;
 }
