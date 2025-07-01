@@ -34,12 +34,14 @@ function ColorPicker({ label, color, onChange }: ColorPickerProps) {
 	return (
 		<div class="color-input-group">
 			<span>{label}</span>
-			<input
-				type="color"
-				value={hexColor}
-				class="color-input"
-				onInput={handleChange}
-			/>
+			<label class="color-input-label" style={{ backgroundColor: hexColor }}>
+				<input
+					type="color"
+					value={hexColor}
+					class="color-input"
+					onInput={handleChange}
+				/>
+			</label>
 			<input
 				type="text"
 				value={hexColor}

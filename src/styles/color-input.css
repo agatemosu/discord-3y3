@@ -15,25 +15,15 @@
 	gap: 10px;
 }
 
-.color-input {
-	appearance: none;
+.color-input-label {
 	cursor: pointer;
-	border: none;
 	border-radius: 50%;
-	background: none;
-	padding: 0;
 	width: 80px;
 	height: 80px;
 }
 
-.color-input::-webkit-color-swatch {
-	border: none;
-	border-radius: 50%;
-}
-
-.color-input::-moz-color-swatch {
-	border: none;
-	border-radius: 50%;
+.color-input {
+	display: none;
 }
 
 .color-text-input {
