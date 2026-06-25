@@ -76,15 +76,8 @@ fn ColorPicker(
 pub fn App() -> Html {
 	let primary_color = use_state(|| 0xd2e5db as u32);
 	let accent_color = use_state(|| 0xd2e5db as u32);
-	let encoded_output = use_state(|| "".to_owned());
 
-	let a = encoded_output.clone();
-	use_effect_with(
-		(primary_color.clone(), accent_color.clone()),
-		move |(primary_color, accent_color)| {
-			a.set(util::encode(**primary_color, **accent_color));
-		},
-	);
+	let encoded_output = util::encode(*primary_color, *accent_color);
 
 	let handle_copy = move |_| {
 		let encoded_output = encoded_output.clone();
@@ -93,7 +86,7 @@ pub fn App() -> Html {
 			window
 				.navigator()
 				.clipboard()
-				.write_text((*encoded_output).as_str())
+				.write_text(&encoded_output)
 				.await
 				.unwrap();
 			window
