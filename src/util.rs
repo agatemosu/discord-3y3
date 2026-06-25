@@ -9,7 +9,7 @@ pub fn is_bright(color: u32) -> bool {
 }
 
 pub fn to_css_hex(color: u32) -> String {
-	format!("#{:0x}", color)
+	format!("#{:06x}", color)
 }
 
 pub fn encode(primary: u32, accent: u32) -> String {
