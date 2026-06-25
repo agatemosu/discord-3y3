@@ -7,7 +7,7 @@ use crate::util;
 struct ColorPickerProps {
 	label: String,
 	color: u32,
-	on_change: Callback<u32>,
+	onchange: Callback<u32>,
 }
 
 #[component]
@@ -15,25 +15,25 @@ fn ColorPicker(
 	ColorPickerProps {
 		label,
 		color,
-		on_change,
+		onchange,
 	}: &ColorPickerProps,
 ) -> Html {
 	let hex_color = util::to_css_hex(*color);
 
 	let handle_change = {
-		let on_change = on_change.clone();
+		let onchange = onchange.clone();
 		move |e: InputEvent| {
 			let target = e.target().unwrap().dyn_into::<HtmlInputElement>().unwrap();
 
 			let value = target.value().replace("#", "");
 			let value = u32::from_str_radix(&value, 16).unwrap();
 
-			on_change.emit(value);
+			onchange.emit(value);
 		}
 	};
 
 	let handle_text_change = {
-		let on_change = on_change.clone();
+		let onchange = onchange.clone();
 		move |e: InputEvent| {
 			let target = e.target().unwrap().dyn_into::<HtmlInputElement>().unwrap();
 
@@ -43,7 +43,7 @@ fn ColorPicker(
 			}
 
 			let value = u32::from_str_radix(&value, 16).unwrap();
-			on_change.emit(value);
+			onchange.emit(value);
 		}
 	};
 
@@ -64,7 +64,7 @@ fn ColorPicker(
 			<input
 				type="text"
 				value={hex_color.clone()}
-				maxLength={7}
+				maxlength={7}
 				class="color-text-input"
 				oninput={handle_text_change}
 			/>
@@ -119,7 +119,7 @@ pub fn App() -> Html {
 			<ColorPicker
 					label="Primary Color"
 					color={*primary_color}
-					on_change={
+					onchange={
 						let primary_color = primary_color.clone();
 						move |color| primary_color.set(color)
 					}
@@ -127,7 +127,7 @@ pub fn App() -> Html {
 				<ColorPicker
 					label="Accent Color"
 					color={*accent_color}
-					on_change={
+					onchange={
 						let accent_color = accent_color.clone();
 						move |color| accent_color.set(color)
 					}
